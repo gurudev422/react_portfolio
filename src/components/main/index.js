@@ -21,6 +21,11 @@ class Main extends Component {
         };
     }
 
+    loadScripts(){
+        let script = document.createElement('script');
+        script.src = "js/init.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+        }
     componentDidMount() {
         const { name } = this.state;
         axios.get(`${BASE_URL}${GET_RESUME}${name}`)
@@ -34,9 +39,11 @@ class Main extends Component {
 
                 const body = { name: myResume.name };
                 axios.post(`${BASE_URL}${TRACK_IP}`, body);
+                
             } else {
                 this.setState({dataLoaded: true, myResume:undefined})
             }
+            this.loadScripts();
           } )
           .catch( response => {
             ToastsStore.error('Contacting was failed, please try again later!');
