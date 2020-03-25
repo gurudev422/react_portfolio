@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('hellow world')
     return (
       <Router>
         <div className="App">

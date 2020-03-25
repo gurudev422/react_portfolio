@@ -92,9 +92,9 @@
   left: 8px;
   right: 8px;
   z-index: 1044; }
-  .mfp-preloader a {
+.mfp-preloader a {
     color: #cccccc; }
-    .mfp-preloader a:hover {
+.mfp-preloader a:hover {
       color: white; }
 
 .mfp-s-ready .mfp-preloader {

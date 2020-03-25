@@ -9,8 +9,9 @@ import Footer from './Footer';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 import axios from 'axios';
 import {BASE_URL, TRACK_IP, GET_RESUME} from '../../apis';
-import NotFound from '../NotFound';
-
+import { css } from "@emotion/core";
+import HashLoader from "react-spinners/HashLoader";
+import NotFound from './../NotFound'
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -52,20 +53,32 @@ class Main extends Component {
     
     render() {
         const { myResume, dataLoaded } = this.state;
+        console.log(this.state);
         return (
             <>
-            { dataLoaded && myResume !== undefined ? 
-                <>
-                    <Header resumeData={myResume}/>
-                    <About resumeData={myResume}/>
-                    <Resume resumeData={myResume}/>
-                    <Portfolio resumeData={myResume}/>
-                    <Testimonials resumeData={myResume}/>
-                    <ContactUs resumeData={myResume}/>
-                    <Footer resumeData={myResume}/>
-                    <ToastsContainer store={ToastsStore}/>
-                </>
-            :   <NotFound />
+            { dataLoaded  ? 
+                myResume !== undefined ?
+                    <>
+                        <Header resumeData={myResume}/>
+                        <About resumeData={myResume}/>
+                        <Resume resumeData={myResume}/>
+                        <Portfolio resumeData={myResume}/>
+                        <Testimonials resumeData={myResume}/>
+                        <ContactUs resumeData={myResume}/>
+                        <Footer resumeData={myResume}/>
+                        <ToastsContainer store={ToastsStore}/>
+                    </>
+                :
+                <NotFound/>    
+            :   
+                <div style={{textAlign:"-webkit-center", marginTop:300}}>
+                    <HashLoader
+                        size={150}
+                        color={"#123abc"}
+                        loading={true}
+                    />
+                </div>
+                
             }
             </>
         );

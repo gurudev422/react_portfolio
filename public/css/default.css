@@ -801,7 +801,12 @@ properly.
 	margin-right: auto !important;
 	text-align: center !important;
 }
+.big-img {
+   width: 800px;
+}
 
-
+.mfp-container .mfp-content{
+   text-align: -webkit-center;
+}
 
 
