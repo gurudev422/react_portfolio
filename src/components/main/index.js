@@ -25,7 +25,7 @@ class Main extends Component {
         let script = document.createElement('script');
         script.src = "js/init.js";
         document.getElementsByTagName('head')[0].appendChild(script);
-        }
+    }
     componentDidMount() {
         const { name } = this.state;
         axios.get(`${BASE_URL}${GET_RESUME}${name}`)
